@@ -1,0 +1,23 @@
+<div class="container mt-3">
+  <div class="container-info-and-review d-flex justify-content-around align-items-start flex-wrap">
+    <div class="container-info-restaurant">
+      <h1>Restaurant</h1>
+      <p>Name restaurant: <%= @restaurant.name %></p>
+      <p>Address restaurant: <%= @restaurant.address %></p>
+      <p>Category: <%= @restaurant.category %></p>
+      <p>Phone number: <%= @restaurant.phone_number %></p>
+    </div>
+
+    <div class="container-info-review mr-3">
+      <h1>Reviews</h1>
+      <% @reviews.each do |review| %>
+        <p><%= review.content %> | <%= '⭐️' * review.rating %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container-links text-center my-5">
+    <%= link_to 'Back', restaurants_path, class: 'btn btn-primary' %> |
+    <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+  </div>
+</div>
